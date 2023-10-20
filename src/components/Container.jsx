@@ -5,13 +5,13 @@ import InputDesign from "./InputDesign";
 import logo from "../img/logo-qr-generator.svg";
 
 const ContainerFirst = styled.div`
-  /* width: 100vw; */
   height: 100vh;
   padding: 50px;
   background-color: #111629;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-position-x: right;
 `;
 
 const ImgStyled = styled.img`
@@ -24,6 +24,7 @@ const ContainerInput = styled.div`
   flex-direction: column;
   align-items: center;
   gap:20px;
+  transform: scaleX();
 `;
 
 const Container = () => {
@@ -33,6 +34,7 @@ const Container = () => {
         style={{
           backgroundImage: `url(${fondo})`,
           backgroundRepeat: "no-repeat",
+          
         }}
       >
         <ContainerInput>
