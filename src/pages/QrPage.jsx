@@ -3,6 +3,7 @@ import styled from "styled-components";
 import fondo from "../img/bg-illustration.png";
 import Logo from "../img/logo-qr-generator.svg";
 import FondoQr from "../img/blur-bg.svg";
+import QRCode from "react-qr-code";
 
 // Estilos
 
@@ -43,6 +44,9 @@ const ContainerQr2 = styled.div`
   height: 310px;
   background-color: #fff;
   border-radius: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 // Container Buttons
@@ -79,7 +83,9 @@ const QrPage = () => {
         }}
       >
         <ContainerQr1>
-          <ContainerQr2></ContainerQr2>
+          <ContainerQr2>
+          <QRCode value="www.google.com.co"></QRCode>
+          </ContainerQr2>
         </ContainerQr1>
         <ContainerButtons>
           <Button>Download</Button>

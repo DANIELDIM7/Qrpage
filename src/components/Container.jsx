@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import fondo from "../img/bg-illustration.png";
 import InputDesign from "./InputDesign";
@@ -28,6 +28,14 @@ const ContainerInput = styled.div`
 `;
 
 const Container = () => {
+  const [InputValue, setInputValue] = useState('');
+
+  const LoadValue =(values) => {
+    setInputValue(values)
+  }
+
+  
+
   return (
     <>
       <ContainerFirst
@@ -39,7 +47,7 @@ const Container = () => {
       >
         <ContainerInput>
           <ImgStyled src={logo} />
-          <InputDesign />
+          <InputDesign onChange={LoadValue} />
         </ContainerInput>
       </ContainerFirst>
     </>

@@ -29,10 +29,10 @@ const ButtonDesign = styled.button`
   color: white;
 `;
 
-const InputDesign = () => {
+const InputDesign = (props) => {
   return (
     <InputContainer>
-      <InputPrimary placeholder="Enter an Url" />
+      <InputPrimary placeholder="Enter an Url"  />
       <ButtonDesign>QRCode</ButtonDesign>
     </InputContainer>
   );
