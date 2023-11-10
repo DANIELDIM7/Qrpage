@@ -54,7 +54,7 @@ const ContainerQr2 = styled.div`
 const ContainerButtons = styled.div`
   width: 100%;
   display: flex;
-  justify-content:center;
+  justify-content: center;
   gap: 40px;
 `;
 
@@ -63,10 +63,8 @@ const Button = styled.button`
   height: 70px;
   border-radius: 20px;
   border: none;
-  background-color: #3762E4;
+  background-color: #3762e4;
   color: #ffff;
-  
-
 `;
 
 const QrPage = () => {
@@ -84,7 +82,7 @@ const QrPage = () => {
       >
         <ContainerQr1>
           <ContainerQr2>
-          <QRCode value="www.google.com.co"></QRCode>
+            <QRCode value="www.google.com.co"></QRCode>
           </ContainerQr2>
         </ContainerQr1>
         <ContainerButtons>

@@ -23,31 +23,24 @@ const ContainerInput = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap:20px;
+  gap: 20px;
   transform: scaleX();
 `;
 
 const Container = () => {
-  const [InputValue, setInputValue] = useState('');
-
-  const LoadValue =(values) => {
-    setInputValue(values)
-  }
-
-  
-
+ 
+ 
   return (
     <>
       <ContainerFirst
         style={{
           backgroundImage: `url(${fondo})`,
           backgroundRepeat: "no-repeat",
-          
         }}
       >
         <ContainerInput>
           <ImgStyled src={logo} />
-          <InputDesign onChange={LoadValue} />
+          <InputDesign  />
         </ContainerInput>
       </ContainerFirst>
     </>

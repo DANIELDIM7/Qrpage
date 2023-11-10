@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import { Context } from "../Context";
 
 const InputContainer = styled.div`
   width: 600px;
@@ -29,10 +30,20 @@ const ButtonDesign = styled.button`
   color: white;
 `;
 
-const InputDesign = (props) => {
+const InputDesign = ({ onChange }) => {
+
+  // Aquí se usa el context para traer los datos del usestate
+
+  const contextDatos = useContext(Context);
+  
+
+  const handleChange = (e) => {
+    contextDatos.actualizarValor(e.target.value);
+  };
+
   return (
     <InputContainer>
-      <InputPrimary placeholder="Enter an Url"  />
+      <InputPrimary placeholder="Enter an Url" onChange={handleChange} />
       <ButtonDesign>QRCode</ButtonDesign>
     </InputContainer>
   );
