@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
+import QrPage from "../pages/QrPage";
 import styled from "styled-components";
 import { Context } from "../Context";
+import { Link } from "react-router-dom";
 
 const InputContainer = styled.div`
   width: 600px;
@@ -28,14 +30,13 @@ const ButtonDesign = styled.button`
   background-color: #3762e4;
   border: none;
   color: white;
+  &:hover{background-color: #9090f1; cursor: pointer;}
 `;
 
-const InputDesign = ({ onChange }) => {
-
+const InputDesign = () => {
   // Aquí se usa el context para traer los datos del usestate
 
   const contextDatos = useContext(Context);
-  
 
   const handleChange = (e) => {
     contextDatos.actualizarValor(e.target.value);
@@ -44,7 +45,9 @@ const InputDesign = ({ onChange }) => {
   return (
     <InputContainer>
       <InputPrimary placeholder="Enter an Url" onChange={handleChange} />
-      <ButtonDesign>QRCode</ButtonDesign>
+      <Link to={'/Qrpage'}>
+        <ButtonDesign>QRCode</ButtonDesign>
+      </Link>
     </InputContainer>
   );
 };

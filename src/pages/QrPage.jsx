@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext, useRef } from "react";
 import styled from "styled-components";
 import fondo from "../img/bg-illustration.png";
 import Logo from "../img/logo-qr-generator.svg";
-import FondoQr from "../img/blur-bg.svg";
 import QRCode from "react-qr-code";
+import { Link } from "react-router-dom";
+import { Context } from "../Context";
+import html2canvas from "html2canvas";
+import clipboardCopy from "clipboard-copy";
 
 // Estilos
 
@@ -68,26 +71,54 @@ const Button = styled.button`
 `;
 
 const QrPage = () => {
+  // Datos provenientes del context
+  const ContextDatos = useContext(Context);
+  // const ValueQr = Context;
+  const { InputValue } = ContextDatos;
+
+  // Ref para el contenedor del qr
+  const qrContainerRef = useRef(null);
+
+  // Función que genera la descarga del qr
+  const handleDownload = () => {
+    html2canvas(qrContainerRef.current).then((canvas) => {
+      // Crea un enlace de descarga con la imagen generada
+      const link = document.createElement("a");
+      link.href = canvas.toDataURL("image/png");
+      link.download = "qr_code.png";
+      // Simula un clic en el enlace para iniciar la descarga
+      link.click();
+    });
+  };
+
+  // Función que copia el contenido del QR al portapapeles
+  const handleCopy = () => {
+    clipboardCopy(InputValue);
+    alert("QR code copied to clipboard!");
+  };
+
   return (
     <>
       <ContainerLogo>
-        <ImgLogo src={Logo} />
+        <Link to={"/"}>
+          <ImgLogo src={Logo} />
+        </Link>
       </ContainerLogo>
       <ContainerFirst
         style={{
           backgroundImage: `url(${fondo})`,
           backgroundRepeat: "no-repeat",
-          // backgroundPositionX: ',
         }}
+        ref={qrContainerRef}
       >
         <ContainerQr1>
           <ContainerQr2>
-            <QRCode value="www.google.com.co"></QRCode>
+            <QRCode value={InputValue}></QRCode>
           </ContainerQr2>
         </ContainerQr1>
         <ContainerButtons>
-          <Button>Download</Button>
-          <Button>Share</Button>
+          <Button onClick={handleDownload}>Download</Button>
+          <Button onClick={handleCopy}>Share</Button>
         </ContainerButtons>
       </ContainerFirst>
     </>

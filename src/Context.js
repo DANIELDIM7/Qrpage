@@ -8,6 +8,7 @@ export const ContextProvider = ({ children }) => {
   console.log("Aquí está el valor del state", InputValue);
 
   const values = {
+    InputValue,
     actualizarValor(val) {
       setInputValue(val);
     },
