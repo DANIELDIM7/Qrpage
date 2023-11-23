@@ -5,7 +5,17 @@ import { Context } from "../Context";
 import { Link } from "react-router-dom";
 
 const InputContainer = styled.div`
-  width: 600px;
+  width: ${(props) =>{
+    if(props.size === 'sm'){
+    return '100%'
+    } else if (props.size ==='md'){
+      return '100%'
+    } else {
+      return '600px'
+    }
+  }}
+   
+   ;
   height: 50px;
   border: 2px solid #3762e4;
   background-color: #030617;
@@ -16,7 +26,18 @@ const InputContainer = styled.div`
   align-items: center;
 `;
 const InputPrimary = styled.input`
-  width: 400px;
+  width: ${(props) =>{
+    if(props.size === 'sm'){
+    return '100px'
+    } else if(props.size ==='md'){
+      return '100px'
+    } else {
+      return '600px'
+    }
+  }}
+   
+   ;
+  
   height: 30px;
   outline: none;
   border: none;

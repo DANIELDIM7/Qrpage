@@ -5,8 +5,27 @@ import InputDesign from "./InputDesign";
 import logo from "../img/logo-qr-generator.svg";
 
 const ContainerFirst = styled.div`
+  width: ${(props) => {
+    if (props.size === "sm") {
+      return "100%";
+    } else if(props.size === 'md'){
+      return '100%'
+    } else {
+      return 'auto'
+    }
+  }};
   height: 100vh;
-  padding: 50px;
+  padding:  ${(props) => {
+    if (props.size === "sm") {
+      return "0px";
+    } else if(props.size === 'md'){
+      return '0px'
+    } else {
+      return '50px'
+    }
+  }}
+  ;
+
   background-color: #111629;
   display: flex;
   justify-content: center;
@@ -19,6 +38,15 @@ const ImgStyled = styled.img`
 `;
 
 const ContainerInput = styled.div`
+ width: ${(props) => {
+    if (props.size === "sm") {
+      return "100%";
+    } else if(props.size === 'md'){
+      return '100%'
+    } else {
+      return 'auto'
+    }
+  }};
   height: 200px;
   display: flex;
   flex-direction: column;
@@ -28,8 +56,6 @@ const ContainerInput = styled.div`
 `;
 
 const Container = () => {
- 
- 
   return (
     <>
       <ContainerFirst
@@ -40,7 +66,7 @@ const Container = () => {
       >
         <ContainerInput>
           <ImgStyled src={logo} />
-          <InputDesign  />
+          <InputDesign />
         </ContainerInput>
       </ContainerFirst>
     </>
